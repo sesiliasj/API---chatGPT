@@ -1,0 +1,14 @@
+services:
+  flask:
+    image: python:3.10.12
+    volumes:
+      - ./:/app
+    working_dir: /app
+    ports:
+      - 5000:5000
+    stdin_open: true
+    tty: true
+
+networks:
+  flask-network:
+    driver: bridge
