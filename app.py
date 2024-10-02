@@ -1,10 +1,15 @@
 from flask import Flask, request, jsonify
+from dotenv import load_dotenv
+import os
 import openai
 
 app = Flask(__name__)
 
-# Setel API key OpenAI Anda
-openai.api_key = 'secret'
+load_dotenv()
+
+OPENAI_KEY = os.getenv('OPENAI_KEY')
+
+openai.api_key = OPENAI_KEY
 
 @app.route('/detect-ai-text', methods=['POST'])
 def detect_ai_text():
@@ -39,5 +44,4 @@ def detect_ai_text():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    # Jalankan server pada host 0.0.0.0 dan port 5000
     app.run(host='0.0.0.0', port=5000, debug=True)
