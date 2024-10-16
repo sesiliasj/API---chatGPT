@@ -1,4 +1,3 @@
 Flask
 openai==0.28
-transformers
 python-dotenv
