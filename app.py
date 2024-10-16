@@ -32,14 +32,9 @@ def detect_ai():
                 temperature=0.2
             )
             result = response.choices[0].text.strip()
-            
-            percentage = float(result.replace('%', '').strip())
-            total_percentage += percentage
 
-        average_percentage = total_percentage / num_requests
+        return jsonify({'AI Percentage Average': f"{result}"})
 
-        return jsonify({'AI Percentage Average': f"{average_percentage}%"})
-    
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
