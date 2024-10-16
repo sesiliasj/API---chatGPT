@@ -21,7 +21,7 @@ def detect_ai():
     text = data['text']
 
     total_percentage = 0
-    num_requests = 100
+    num_requests = 1
 
     try:
         for _ in range(num_requests):
