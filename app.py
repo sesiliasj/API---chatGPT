@@ -32,7 +32,7 @@ def detect_ai():
             )
             result = response.choices[0].text.strip()
 
-        return jsonify({'AI Percentage Average': f"{result}"})
+        return jsonify({'AI': f"{result}"})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
